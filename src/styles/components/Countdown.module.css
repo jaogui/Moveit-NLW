@@ -54,6 +54,7 @@
     outline: none;
 }
 
+
 .countdownButton:not(:disabled):hover{
     background: var(--blue-dark);
 }
@@ -74,4 +75,9 @@
     cursor: not-allowed;
     color: var(--title);
     border-bottom: 0.2rem solid var(--green);
+}
+
+.countdownButton:disabled img {
+    height: 17px;
+    padding: 0px 10px;
 }
