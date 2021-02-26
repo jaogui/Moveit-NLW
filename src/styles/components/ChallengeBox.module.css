@@ -96,10 +96,6 @@
     overflow: hidden;
 }
 
-.challengeBoxActive footer button img{
-    border: 1px solid yellow;
-}
-
 
 .challengeBoxActive footer button::after{
     content: '';
