@@ -1,12 +1,16 @@
 .profileContainer{
     display: flex;
     align-items: center;
+    box-shadow: 10px 10px 5px -7px rgba(0,0,0,0.1);
+    padding: 10px 0px;
+    border-radius: 5px;
 }
 
 .profileContainer > img{
-    width: 5.5rem;
-    height: 5.5rem;
+    width: 7.5rem;
+    height: 7.5rem;
     border-radius: 58%;
+    border: 2px solid var(--text-highlight);
 }
 
 .profileContainer div {
@@ -14,13 +18,13 @@
 }
 
 .profileContainer div strong{
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     font-weight: 600;
     color: var(--title);
 }
 
 .profileContainer div p {
-    font-size: 1rem;
+    font-size: 1.2rem;
     margin-top: 0.5rem;
 }
 

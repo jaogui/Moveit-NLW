@@ -31,6 +31,7 @@
     line-height: 1.4;
     max-width: 70%;
     margin-top: 3rem;
+    font-size: 1.17rem;
 }
 
 
@@ -90,7 +91,11 @@
     font-weight: 600;
     transition: filter 0.2s;
     padding: 0 0.5rem;
-   
+    transition: all 0.2s;
+}
+
+.challengeBoxActive footer button:hover{
+    opacity: 0.8;
 }
 
 
