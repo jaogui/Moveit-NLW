@@ -10,9 +10,13 @@ import Heade from 'next/head';
 import styles from '../styles/pages/Home.module.css';
 import { ChallangeBox } from '../components/ChallengeBox';
 import { CountdownProvider } from '../contexts/CountdownContext';
+import { ChallengesProvider } from '../contexts/ChallengesContext';
+
 
 export default function Home(props) {
+
   return (
+    <ChallengesProvider level={props.level} currentExperience={props.currentExperience} challengesCompleted={props.challengesCompleted}>
     <div className={styles.container}>
       <Head>
         <title>Inicio | Moveit</title>
@@ -33,24 +37,20 @@ export default function Home(props) {
       </section>
       </CountdownProvider>
     </div>
+    </ChallengesProvider>
   )
 }
 
 
-export const getServerSideProps: GetServerSideProps = async(ctx) =>{  
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const { level, currentExperience, challengesCompleted } = ctx.req.cookies
   
- const dataUser = {
-   level: 1,
-   currentExperience: 2,
-   challengesCompleted: 2
- } 
-  
-const {leve, currentExperience, challengesCompleted} = ctx.req.cookies;
-
+  console.log(currentExperience)
   return {
-    props:{
-     props: dataUser
+    props: {
+      level: Number(level ?? 1),
+      currentExperience: Number(currentExperience ?? 0),
+      challengesCompleted: Number(challengesCompleted ?? 0)
     }
-
   }
 }

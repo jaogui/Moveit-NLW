@@ -1,9 +1,13 @@
 import { createContext, useState, ReactNode, useEffect} from 'react';
 import challenges from '../../challanges.json';
 import Cookie from 'js-cookie';
+import { LevelUpModal } from '../components/LevelUpModal';
 
 interface ChallengesProviderProps{
     children: ReactNode;
+    level: number;
+    currentExperience: number;
+    challengesCompleted: number;
 }
 
 interface Challenge{
@@ -27,12 +31,10 @@ interface ChallengesContextData{
 
 export const ChallengesContext = createContext({} as ChallengesContextData);
 
-
-
-export function ChallengesProvider({ children }: ChallengesProviderProps){
-    const [level, setLevel] = useState(1);
-    const [currentExperience, setCurrentExperience] = useState(0);
-    const [challengesCompleted, setChallengesCompleted] = useState(0);
+export function ChallengesProvider({ children, ...rest }: ChallengesProviderProps){
+    const [level, setLevel] = useState(rest.level);
+    const [currentExperience, setCurrentExperience] = useState(rest.currentExperience);
+    const [challengesCompleted, setChallengesCompleted] = useState(rest.challengesCompleted);
 
     const [activeChallenge, setActiveChallenge] = useState(null);
     const experienceToNextLevel = Math.pow((level + 1) * 4,2);
@@ -44,10 +46,9 @@ export function ChallengesProvider({ children }: ChallengesProviderProps){
      
 
     useEffect(()=> {
-        
-            Cookie.set('level', level.toString);
-            Cookie.set('currentExperience', currentExperience.toString);
-            Cookie.set('challengesCompleted', challengesCompleted.toString);
+            Cookie.set('level', String(level));
+            Cookie.set('currentExperience', String(currentExperience));
+            Cookie.set('challengesCompleted', String(challengesCompleted));
         
         }, [level, currentExperience, challengesCompleted])
 
@@ -78,11 +79,10 @@ export function ChallengesProvider({ children }: ChallengesProviderProps){
         if(!activeChallenge){
             return;
         }
-
         const { amount } = activeChallenge;
 
         let finalExperience = currentExperience + amount;
-
+        
         if(finalExperience >= experienceToNextLevel){
             finalExperience = finalExperience - experienceToNextLevel;
             levelUp();
@@ -107,6 +107,8 @@ export function ChallengesProvider({ children }: ChallengesProviderProps){
             completeChallenge,
             }}>
             {children}
+
+            <LevelUpModal />
         </ChallengesContext.Provider>
     );
 }
