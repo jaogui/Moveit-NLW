@@ -92,10 +92,31 @@
     transition: filter 0.2s;
     padding: 0 0.5rem;
     transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
 }
 
-.challengeBoxActive footer button:hover{
-    opacity: 0.8;
+.challengeBoxActive footer button::after{
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    bottom: -50%;
+    left: -50%;
+    background: linear-gradient(to bottom, rgba(229, 172, 142, 0), rgba(255,255,255,0.5) 50%, rgba(229, 172, 142, 0));
+    transform: rotateZ(60deg) translate(-5em, 7.5em);
+
+}
+
+
+.challengeBoxActive footer button:hover::after{
+    animation: effectBrightness 1s forwards;
+}
+
+@keyframes effectBrightness{
+    100%{
+        transform: rotateZ(60deg) translate(1em, -9em);
+    }
 }
 
 
