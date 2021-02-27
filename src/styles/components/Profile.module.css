@@ -6,12 +6,20 @@
     border-radius: 5px;
 }
 
-.profileContainer > img{
+.profileContainer > span {
+    border: 2px solid var(--text-highlight);
+    border-radius: 54%;
+    padding: 5px;
+    display: flex;
+}
+
+.profileContainer > span > img{
     width: 7.5rem;
     height: 7.5rem;
     border-radius: 58%;
-    border: 2px solid var(--text-highlight);
+    position: relative;
 }
+
 
 .profileContainer div {
     margin-left: 1.5rem;

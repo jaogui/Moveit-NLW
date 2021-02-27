@@ -18,7 +18,6 @@ function handleChallengeFail(){
     resetCountdown();
 }
 
-
     return (
         <div className={styles.challengeBoxContainer}>
             { activeChallenge ? (

@@ -6,8 +6,8 @@ export function Sidebar() {
         <div className={style.sidebarContainer}>
             <img src="../icons/logo.svg" alt="Moveit logo"/>
                 <div className= {style.sidebarToggle}>
+                    Dark mode
                     <input id="switch" type="checkbox" name="theme" />
-                    Dark Mode
                     <label for="switch">Toggle</label>
                 </div>
         </div>
