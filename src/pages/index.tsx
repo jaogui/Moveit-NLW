@@ -11,6 +11,7 @@ import styles from '../styles/pages/Home.module.css';
 import { ChallangeBox } from '../components/ChallengeBox';
 import { CountdownProvider } from '../contexts/CountdownContext';
 import { ChallengesProvider } from '../contexts/ChallengesContext';
+import { Sidebar } from '../components/Sidebar';
 
 
 export default function Home(props) {
@@ -18,6 +19,7 @@ export default function Home(props) {
   return (
     <ChallengesProvider level={props.level} currentExperience={props.currentExperience} challengesCompleted={props.challengesCompleted}>
     <div className={styles.container}>
+      <Sidebar/>
       <Head>
         <title>Inicio | Moveit</title>
       </Head>
