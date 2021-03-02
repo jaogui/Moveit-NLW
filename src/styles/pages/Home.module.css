@@ -1,6 +1,6 @@
 .container{
     height: 100vh;
-    max-width: 1120px;
+    max-width: 750px;
     margin: 0 auto;
     padding: 2.5rem 2rem;
     display: flex;  
@@ -9,8 +9,30 @@
 
 .container section{
     flex: 1;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6.25rem;
+    display: flex;
+    flex-direction: column;
     align-content: center;
+    justify-content: center;
 }
+
+
+/* * * RESPONSIVE * * */
+@media (min-width: 1250px){
+    .container{
+        max-width: 1120px;
+    }
+}
+
+
+@media (min-width: 920px){
+    .container section{
+        display: grid !important;
+        grid-template-columns: 1fr 1fr;
+        gap: 6.25rem;
+    }
+}
+
+
+
+
+

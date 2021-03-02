@@ -1,18 +1,17 @@
 .sidebarContainer{
-    height: 100%;
-    width: 100px;
-    position: absolute;
-    left: 0;
-    top: 0;
+    height: 90px;
+    width: 100%;
     background-color: var(--white);
-    padding: 20px 0px;
+    padding: 10px 0px;
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 .sidebarContainer img {
     display: flex;
+    max-height: 50px;
     margin: 0 auto;
 }
 
@@ -67,4 +66,20 @@
 
 .sidebarToggle label:active:after {
     width: 45px;
+}
+
+
+@media (min-width: 920px){
+    .sidebarContainer{
+        height: 100%;
+        width: 100px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: var(--white);
+        padding: 20px 0px;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
 }

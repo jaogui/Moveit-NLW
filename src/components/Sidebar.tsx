@@ -8,7 +8,7 @@ export function Sidebar() {
                 <div className= {style.sidebarToggle}>
                     Dark mode
                     <input id="switch" type="checkbox" name="theme" />
-                    <label for="switch">Toggle</label>
+                    <label>Toggle</label>
                 </div>
         </div>
     );

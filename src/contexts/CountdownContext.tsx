@@ -46,12 +46,10 @@ export function CountdownProvider({children}: countdownProviderProps){
                 setTime(time - 1);
             }, 1000)
         } else if (isActive && time === 0) {
-            console.log("Finalizou");
             setHasFineshed(true);
             setIsActive(false);
             startNewChallenge();
         }
-        console.log(isActive);
     }, [isActive, time])
 
 
